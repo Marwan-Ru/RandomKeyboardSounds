@@ -24,18 +24,18 @@ def play_random_sound(sounds):
         print(f"Error playing sound: {e}")
 
 def on_press(key):
-    if key == Key.esc:  # Add a key combination to exit the program (e.g., 'esc')
+    if key == Key.insert:  # Add a key combination to exit the program (e.g., 'esc')
         return False  # Stop the listener
     
     
     if is_empty(sounds_list_onpress) == False:
-        if random.randint(0, 100) == 2:
+        if random.randint(0, 1000) == 2:
             play_random_sound(sounds_list_onpress)
     else:
         print("There is no files | sounds folder is Empty.")
 
 def on_release(key):
-    if is_empty(sounds_list_onrelease) == False and random.randint(0, 100) == 10:
+    if is_empty(sounds_list_onrelease) == False and random.randint(0, 1000) == 10:
         play_random_sound(sounds_list_onrelease)
     else:
         pass
@@ -52,7 +52,7 @@ def main():
     list_files("sounds_release", sounds_list_onrelease)
     print("Loded OnRelease files:",sounds_list_onrelease)
     with Listener(on_press=on_press, on_release=on_release) as listener:    # start Listener 
-        print("Listening for key presses. Press 'esc' to exit.")
+        print("Listening for key presses. Press 'Inser' to exit.")
         listener.join()
 
 
