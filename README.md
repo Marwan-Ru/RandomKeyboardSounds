@@ -1,5 +1,7 @@
 # Musickeyboard🎵🎹
 
+Stolen from https://github.com/heartlog/MusicKeyboard. Just to modify it freely and add sounds to the repo with friends.
+
 **MusicKeyboard** is a Python program that allows you to play random sound files when you press and release keys on your keyboard. The program uses the pynput.keyboard library to listen for key events and the winsound library to play the sound files.
 
 ## Installation 💻
@@ -55,7 +57,3 @@ The program will start listening for key presses. Press any key to play a random
 Release the key to play a random sound from the `"sounds_release"` folder.
 
 > To exit the program, press the key `Esc`.
-
-## Contributing 🎈
-
-If you have any suggestions or improvements for MusicKeyboard, feel free to open an issue or submit a pull request on the GitHub repository: <https://github.com/heartlog/MusicKeyboard> .
