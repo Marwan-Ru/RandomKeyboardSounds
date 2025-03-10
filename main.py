@@ -20,9 +20,7 @@ def list_files(folder_path, sound_list):
 
 def play_random_sound(sounds, list_used):
     try:
-        print(list_used)
         sound_file = get_new_sound(sounds, list_used)
-        print(sound_file)
         winsound.PlaySound(sound_file, winsound.SND_ASYNC)
         list_used.append(sound_file)
         if len(list_used) == len(sounds):
@@ -48,7 +46,7 @@ def on_press(key):
     
     
     if is_empty(sounds_list_onpress) == False:
-        if random.randint(0, 10) == 2:
+        if random.randint(0, 1000) == 2:
             play_random_sound(sounds_list_onpress, sound_used_on_press)
     else:
         print("There is no files | sounds folder is Empty.")
