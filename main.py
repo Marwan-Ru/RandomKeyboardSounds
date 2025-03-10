@@ -9,6 +9,8 @@ sounds_list_onpress = []
 # List of available sounds For onrelease in "sounds_release"
 sounds_list_onrelease = []
 
+sound_used_on_press = []
+sound_used_on_release = []
 
 def list_files(folder_path, sound_list):
     for filename in os.listdir(folder_path):
@@ -16,12 +18,27 @@ def list_files(folder_path, sound_list):
             full_path = os.path.join(folder_path, filename)
             sound_list.append(full_path)
 
-def play_random_sound(sounds):
+def play_random_sound(sounds, list_used):
     try:
-        sound_file = random.choice(sounds)
+        sound_file = get_new_sound(sounds, list_used)
         winsound.PlaySound(sound_file, winsound.SND_ASYNC)
+        list_used.append(sound_file)
+        if len(list_used) == len(sounds):
+            list_used.clear()
     except Exception as e:
         print(f"Error playing sound: {e}")
+
+def get_new_sound(sounds, list_used):
+    already_used = True
+    sound_file = random.choice(sounds)
+    while already_used == True:
+        already_used = False
+        sound_file = random.choice(sounds)
+        for s in list_used:
+            if sound_file == s:
+                already_used = True
+
+    return sound_file
 
 def on_press(key):
     if key == Key.insert:  # Add a key combination to exit the program (e.g., 'esc')
@@ -30,13 +47,13 @@ def on_press(key):
     
     if is_empty(sounds_list_onpress) == False:
         if random.randint(0, 1000) == 2:
-            play_random_sound(sounds_list_onpress)
+            play_random_sound(sounds_list_onpress, sound_used_on_press)
     else:
         print("There is no files | sounds folder is Empty.")
 
 def on_release(key):
     if is_empty(sounds_list_onrelease) == False and random.randint(0, 1000) == 10:
-        play_random_sound(sounds_list_onrelease)
+        play_random_sound(sounds_list_onrelease, sound_used_on_release)
     else:
         pass
 
