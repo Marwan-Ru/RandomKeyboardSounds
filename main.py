@@ -1,7 +1,7 @@
 import os
 import random
 from pynput.keyboard import Key, Listener
-import winsound
+from playsound import playsound
 import random
 
 # List of available sounds For onpress in "sounds"
@@ -21,7 +21,7 @@ def list_files(folder_path, sound_list):
 def play_random_sound(sounds, list_used):
     try:
         sound_file = get_new_sound(sounds, list_used)
-        winsound.PlaySound(sound_file, winsound.SND_ASYNC)
+        playsound(sound_file)
         list_used.append(sound_file)
         if len(list_used) == len(sounds):
             list_used.clear()
