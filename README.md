@@ -8,10 +8,10 @@ Stolen from https://github.com/heartlog/MusicKeyboard. Just to modify it freely 
 
 To use **MusicKeyboard**, you need to have **Python** installed on your computer. You can download Python from the official website: <https://www.python.org/downloads/>
 
-You also need to install the **pynput** library. You can install it using **pip**:
+You also need to install the **pynput** and **playsound** library. You can install it using **pip**:
 
 ```shell
-pip install pynput
+pip install pynput playsound@git+https://github.com/taconi/playsound
 ```
 
 ## Usage ⁉
